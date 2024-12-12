@@ -1,0 +1,5 @@
+H:/SSC/ProiectQT/cmake-build-debug/CMakeFiles/ProiectQT.dir
+H:/SSC/ProiectQT/cmake-build-debug/CMakeFiles/edit_cache.dir
+H:/SSC/ProiectQT/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+H:/SSC/ProiectQT/cmake-build-debug/CMakeFiles/ProiectQT_autogen_timestamp_deps.dir
+H:/SSC/ProiectQT/cmake-build-debug/CMakeFiles/ProiectQT_autogen.dir
