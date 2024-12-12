@@ -37,11 +37,11 @@ std::vector<Result> TestRunner::run_test(int option) {
 
         VectorTest ramTest(RAM/8,3);
         ramTest.run_test();
-        results.push_back(Result("Ram test",ramTest.getMBSize(),ramTest.get_time_in_ms()));
+        results.push_back(Result("Ram Test",ramTest.getMBSize(),ramTest.get_time_in_ms()));
 
         VectorTest vmTest(VM/8,2);
         vmTest.run_test();
-        results.push_back(Result("Virtual Memory test",vmTest.getMBSize(),vmTest.get_time_in_ms()));
+        results.push_back(Result("Virtual Memory Test",vmTest.getMBSize(),vmTest.get_time_in_ms()));
     }
     return results;
 }

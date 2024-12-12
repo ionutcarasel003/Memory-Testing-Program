@@ -19,6 +19,7 @@ private slots:
     void runMemoryTest();
 
 private:
+    QLabel *titleLabel;
     QPushButton *cacheTestButton;
     QPushButton *memoryTestButton;
     QLabel *statusLabel;

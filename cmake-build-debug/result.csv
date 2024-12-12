@@ -1,4 +1,4 @@
 Test Name,Size,Execution Time (s),Transfer Rate
-Cache L1 Test,20,0.00054412,36756.6
-Cache L2 Test,338,0.0377882,8944.59
-Cache L3 Test,1362,0.320565,4248.75
+Cache Test,4,1.59538,2.50724
+Ram Test,8192,3573.51,2.29243
+Virtual Memory Test,13312,25929.3,0.513396

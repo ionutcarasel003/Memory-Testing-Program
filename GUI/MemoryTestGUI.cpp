@@ -9,9 +9,10 @@
 
 MemoryTestGUI::MemoryTestGUI(QWidget *parent)
         : QWidget(parent),
-          cacheTestButton(new QPushButton("Run Cache Test", this)),
-          memoryTestButton(new QPushButton("Run Memory Test", this)),
-          statusLabel(new QLabel("Ready", this)) {
+            titleLabel(new QLabel("Alege ce test ti-ai dori sa rulezi", this)),
+            cacheTestButton(new QPushButton("Run Cache Test", this)),
+            memoryTestButton(new QPushButton("Run Memory Test", this)),
+            statusLabel(new QLabel("", this)) {
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     QHBoxLayout *buttonLayout = new QHBoxLayout();
@@ -19,6 +20,7 @@ MemoryTestGUI::MemoryTestGUI(QWidget *parent)
     buttonLayout->addWidget(cacheTestButton);
     buttonLayout->addWidget(memoryTestButton);
 
+    mainLayout->addWidget(titleLabel);
     mainLayout->addLayout(buttonLayout);
     mainLayout->addWidget(statusLabel);
 
@@ -35,13 +37,18 @@ void MemoryTestGUI::runCacheTest() {
     TestRunner testRunner;
     std::vector<Result> results = testRunner.run_test(1);
     ResultLogger resultLogger;
+    QString s = "";
     for(const auto & result : results){
         resultLogger.logResult(result);
+        s.append(result.test_name).append(" a durat ").append(std::to_string(result.exec_time))
+        .append(" secunde si a avut performanta de ").append(std::to_string(result.transfer_rate))
+        .append(" MB/s\n");
     }
+    statusLabel->setText(s);
     resultLogger.exportResultsToCSV("result.csv");
     QMessageBox::information(this, "Test Running", "Cache Test completed!");
     resultLogger.generatePlot();
-    statusLabel->setText("Test Completed");
+
 }
 
 void MemoryTestGUI::runMemoryTest() {
@@ -49,11 +56,15 @@ void MemoryTestGUI::runMemoryTest() {
     TestRunner testRunner;
     std::vector<Result> results = testRunner.run_test(2);
     ResultLogger resultLogger;
+    QString s = "";
     for(const auto & result : results){
         resultLogger.logResult(result);
+        s.append(result.test_name).append(" a durat ").append(std::to_string(result.exec_time))
+                .append(" ms si a avut performanta de ").append(std::to_string(result.transfer_rate))
+                .append(" MB/ms\n");
     }
+    statusLabel->setText(s);
     resultLogger.exportResultsToCSV("result.csv");
     QMessageBox::information(this, "Test Running", "Memory Test completed!");
     resultLogger.generatePlot();
-    statusLabel->setText("Test completed");
 }
