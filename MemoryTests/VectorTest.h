@@ -17,6 +17,7 @@ protected:
     std::vector<int> vecB;
     double time;
 public:
+    void generateVec();
     VectorTest(size_t vec_size, size_t rep);
     void run_test();
     double measure_transfer();

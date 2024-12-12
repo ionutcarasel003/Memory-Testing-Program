@@ -18,6 +18,7 @@ protected:
     std::vector<std::vector<int>> matrixC;
     double time;
 public:
+    void populateMatrix();
     MatrixTest(size_t matrix_size, size_t repetitions);
     void run_test();
     double measure_transfer();

@@ -12,6 +12,10 @@ MatrixTest::MatrixTest(size_t size, size_t rep)
           matrixB(size, std::vector<int>(size)),
           matrixC(size, std::vector<int>(size,0)) {
 
+
+}
+
+void MatrixTest::populateMatrix() {
     // popularea matricilor cu valori random
     std::random_device rand;
     std::mt19937 generate(rand());
@@ -24,6 +28,7 @@ MatrixTest::MatrixTest(size_t size, size_t rep)
         }
     }
 }
+
 void MatrixTest::multiplyMatrix(){
     //implementarea inmultirii matricii
     for(size_t rep = 0; rep < repetitions; rep++){

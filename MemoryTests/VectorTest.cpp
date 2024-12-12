@@ -10,7 +10,11 @@
 VectorTest::VectorTest(size_t vec_size, size_t rep):
 size(vec_size),repetitions(rep),time(0.0),
 vecA(vec_size),vecB(vec_size){
-    std::random_device rand;
+
+}
+
+void VectorTest::generateVec() {
+     std::random_device rand;
     std::mt19937 generate(rand());
     std::uniform_int_distribution<int> distribution(1,100);
 
